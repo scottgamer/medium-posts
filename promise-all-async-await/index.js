@@ -27,6 +27,15 @@ const runAsync = async () => {
   const animals = await getAnimals();
   console.log(animals);
 
+  // Using for-of loop
+  // for (const animal of animals) {
+  //   const animalName = await getAnimalName(animal);
+  //   console.log(animalName);
+
+  //   const capitalizedName = await capitalize(animalName);
+  //   console.log(capitalizedName);
+  // }
+
   Promise.all(
     animals.map(async (animal) => {
       const animalName = await getAnimalName(animal);
@@ -39,30 +48,3 @@ const runAsync = async () => {
 };
 
 runAsync();
-
-// Promise.all(
-//   animals.map(async (animal) => {
-//     const animalName = await getAnimalName(animal);
-//     console.log(animalName);
-
-//     const capitalizedName = await capitalize(animalName);
-//     console.log(capitalizedName);
-//   })
-// );
-
-// for (const animal of animals) {
-//   const animalName = await getAnimalName(animal);
-//   console.log(animalName);
-
-//   const capitalizedName = await capitalize(animalName);
-//   console.log(capitalizedName);
-// }
-
-// animals.forEach(async (animal) => {
-//   const animalName = await getAnimalName(animal);
-//   console.log(animalName);
-
-//   const capitalizedName = await capitalize(animalName);
-//   console.log(capitalizedName);
-// });
-// console.log(promiseAll);
