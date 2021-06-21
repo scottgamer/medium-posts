@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+}
+
+.header {
+  margin: 1rem 0;
+}
+
+.container {
+  position: relative;
+  background-color: cadetblue;
+  color: aliceblue;
+  margin: 2rem 0;
+  padding: 1rem 3rem;
+}
+
+.A,
+.B,
+.C {
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  background-color: mediumslateblue;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.B {
+  background-color: rgb(173, 238, 113);
+}
