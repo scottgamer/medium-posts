@@ -45,3 +45,9 @@ body {
   top: 1rem;
   left: 3rem;
 }
+
+.absolute {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+}
