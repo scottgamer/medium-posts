@@ -35,3 +35,13 @@ body {
 .B {
   background-color: rgb(173, 238, 113);
 }
+
+.static {
+  position: static;
+}
+
+.relative {
+  position: relative;
+  top: 1rem;
+  left: 3rem;
+}
