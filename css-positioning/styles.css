@@ -14,7 +14,7 @@ body {
 
 .container {
   position: relative;
-  background-color: cadetblue;
+  background-color: #4D8C81;
   color: aliceblue;
   margin: 2rem 0;
   padding: 1rem 3rem;
@@ -24,16 +24,17 @@ body {
 .B,
 .C {
   display: flex;
+  flex-direction: column;
   width: 10rem;
   height: 10rem;
-  background-color: mediumslateblue;
+  background-color: #165873;
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
 .B {
-  background-color: rgb(173, 238, 113);
+  background-color: #A66D60;
 }
 
 .static {
@@ -50,4 +51,10 @@ body {
   position: absolute;
   top: 3rem;
   right: 5rem;
+}
+
+.fixed {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
 }
