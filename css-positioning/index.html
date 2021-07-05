@@ -12,21 +12,43 @@
     <div class="container">
       <h1 class="header">Static Positioning</h1>
       <div class="A"><h3>A</h3></div>
-      <div class="B"><h3>B</h3></div>
+      <div class="B">
+        <h3>B</h3>
+        I follow the normal flow
+      </div>
       <div class="C"><h3>C</h3></div>
     </div>
 
     <div class="container">
       <h1 class="header">Relative Positioning</h1>
       <div class="A"><h3>A</h3></div>
-      <div class="B relative"><h3>B</h3></div>
+      <div class="B relative">
+        <h3>B</h3>
+        I am moved 1rem from the top and 3 rem from the left from where I should
+        normally be
+      </div>
       <div class="C"><h3>C</h3></div>
     </div>
 
     <div class="container">
       <h1 class="header">Absolute Positioning</h1>
       <div class="A"><h3>A</h3></div>
-      <div class="B absolute"><h3>B</h3></div>
+      <div class="B absolute">
+        <h3>B</h3>
+        I am moved 3rem from the top and 5rem from the right from my nearest
+        relative parent container
+      </div>
+      <div class="C"><h3>C</h3></div>
+    </div>
+
+    <div class="container">
+      <h1 class="header">Fixed Positioning</h1>
+      <div class="A"><h3>A</h3></div>
+      <div class="B fixed">
+        <h3>B</h3>
+        I am fixed to the html document, 5rem from the top and 3 rem from the
+        right
+      </div>
       <div class="C"><h3>C</h3></div>
     </div>
   </body>
