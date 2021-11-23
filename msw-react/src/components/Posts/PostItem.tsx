@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./PostItem.module.css";
+import Comment, { CommentProps } from "../Comments/Comment";
 
 export interface Post {
   id: number;
@@ -7,16 +8,9 @@ export interface Post {
   body: string;
 }
 
-export interface Comment {
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-}
-
 const PostItem = ({ post }: { post: Post }): JSX.Element => {
   const { id, body, title } = post;
-  const [comments, setComments] = useState<Comment[]>([]);
+  const [comments, setComments] = useState<CommentProps[]>([]);
   const [toggleComments, setToggleComments] = useState<boolean>(false);
 
   useEffect(() => {
@@ -34,19 +28,17 @@ const PostItem = ({ post }: { post: Post }): JSX.Element => {
     <article className={styles.postItem}>
       <h3>{title}</h3>
       <div>{body}</div>
-      <button onClick={() => setToggleComments(!toggleComments)}>
-        See comments &darr;
+      <button
+        className={styles.button}
+        onClick={() => setToggleComments(!toggleComments)}
+      >
+        See comments
       </button>
-      {toggleComments && comments ? (
-        <div>
-          the comments
-          {comments.map((comment) => (
-            <div key={comment.id}>
-              {comment.body} posted by: {comment.email}
-            </div>
-          ))}
-        </div>
-      ) : null}
+      {toggleComments && comments
+        ? comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))
+        : null}
     </article>
   );
 };
