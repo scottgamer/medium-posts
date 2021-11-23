@@ -19,7 +19,7 @@ const PostsList = (): JSX.Element => {
   return (
     <ul>
       {posts.map((post) => (
-        <PostItem key={post.id} title={post.title} body={post.body} />
+        <PostItem key={post.id} post={post} />
       ))}
     </ul>
   );
