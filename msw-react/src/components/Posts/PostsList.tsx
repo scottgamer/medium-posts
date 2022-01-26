@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CONSTANTS } from "../../constants";
 import PostItem, { Post } from "./PostItem";
 
 const PostsList = (): JSX.Element => {
@@ -6,11 +7,8 @@ const PostsList = (): JSX.Element => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
+      const response = await fetch(`${CONSTANTS.API_URL}/posts`);
       const posts = await response.json();
-      // return posts;
       setPosts(posts);
     };
     fetchPosts();
