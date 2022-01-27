@@ -35,11 +35,13 @@ const PostItem = ({ post }: { post: Post }): JSX.Element => {
       >
         See comments
       </button>
-      {toggleComments && comments
-        ? comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
-          ))
-        : null}
+      {toggleComments && comments.length > 0 ? (
+        comments.map((comment) => (
+          <Comment key={comment.id} comment={comment} />
+        ))
+      ) : (
+        <div>No comments yet!</div>
+      )}
     </article>
   );
 };
