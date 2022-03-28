@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CONSTANTS } from "../../constants";
 import PostItem, { Post } from "./PostItem";
 
