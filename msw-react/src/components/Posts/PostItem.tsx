@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./PostItem.module.css";
 import Comment, { CommentProps } from "../Comments/Comment";
-import { CONSTANTS } from "../../constants";
+import CONSTANTS from "../../constants";
 
 export interface Post {
   id: number;

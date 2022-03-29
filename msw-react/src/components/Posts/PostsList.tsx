@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CONSTANTS } from "../../constants";
+import CONSTANTS from "../../constants";
 import PostItem, { Post } from "./PostItem";
 
 const PostsList = (): JSX.Element => {
