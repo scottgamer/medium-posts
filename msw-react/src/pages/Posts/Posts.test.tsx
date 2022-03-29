@@ -8,8 +8,7 @@ describe("Posts component", () => {
     screen.getByRole("heading", { name: `Posting all day!` });
   });
 
-  test("Renders the component with loading state", ()=>{
+  test("Renders the component with loading state", () => {
     render(<Posts />);
-
   });
 });
