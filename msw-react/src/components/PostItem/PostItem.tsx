@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import styles from "./PostItem.module.css";
-import Comment, { CommentProps } from "../Comments/Comment";
+import Comment from "../Comments/Comment";
 import CONSTANTS from "../../constants";
 import IPost from "../../interfaces/Post";
+import IComment from "../../interfaces/Comment";
 
 const PostItem = ({ post }: { post: IPost }): JSX.Element => {
   const { id, body, title } = post;
-  const [comments, setComments] = useState<CommentProps[]>([]);
+  const [comments, setComments] = useState<IComment[]>([]);
   const [toggleComments, setToggleComments] = useState<boolean>(false);
 
   useEffect(() => {
