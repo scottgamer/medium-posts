@@ -10,14 +10,27 @@ const PostItem = ({ post }: { post: IPost }): JSX.Element => {
   const [toggleComments, setToggleComments] = useState<boolean>(false);
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     const fetchComments = async (postId: number) => {
-      const response = await fetch(
-        `${CONSTANTS.API_URL}/comments?postId=${postId}`
-      );
-      const data = await response.json();
-      setComments(data);
+      try {
+        const response = await fetch(
+          `${CONSTANTS.API_URL}/comments?postId=${postId}`,
+          { signal: abortController.signal }
+        );
+        const data = await response.json();
+        setComments(data);
+      } catch (error) {
+        if ((error as Error).message === "Aborted") {
+          return;
+        }
+        console.log(error);
+      }
     };
     fetchComments(id);
+    return () => {
+      abortController.abort();
+    };
   }, [id]);
 
   return (
@@ -35,12 +48,13 @@ const PostItem = ({ post }: { post: IPost }): JSX.Element => {
       ) : (
         <div>No comments yet!</div>
       )}
-
-      {toggleComments
-        ? comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
-          ))
-        : null}
+      <ul className={styles.comments}>
+        {toggleComments
+          ? comments.map((comment) => (
+              <Comment key={comment.id} comment={comment} />
+            ))
+          : null}
+      </ul>
     </article>
   );
 };
