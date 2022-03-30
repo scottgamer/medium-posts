@@ -1,14 +1,8 @@
 import React from "react";
+import IComment from "../../interfaces/Comment";
 import styles from "./Comment.module.css";
 
-export interface CommentProps {
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-}
-
-const Comment = ({ comment }: { comment: CommentProps }): JSX.Element => {
+const Comment = ({ comment }: { comment: IComment }): JSX.Element => {
   return (
     <li className={styles.comment}>
       <div className={styles.body}>{comment.body}</div>
