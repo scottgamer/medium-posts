@@ -9,20 +9,29 @@ const PostsList = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    const abortController = new AbortController();
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${CONSTANTS.API_URL}/posts`);
+        const response = await fetch(`${CONSTANTS.API_URL}/posts`, {
+          signal: abortController.signal,
+        });
         const posts = await response.json();
 
         setPosts(posts);
       } catch (error) {
-        console.error(error);
+        if ((error as Error).message === "Aborted") {
+          return;
+        }
+        console.error((error as Error).message);
       } finally {
         setLoading(false);
       }
     };
     fetchPosts();
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   if (loading) {
