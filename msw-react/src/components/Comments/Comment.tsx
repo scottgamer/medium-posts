@@ -10,10 +10,10 @@ export interface CommentProps {
 
 const Comment = ({ comment }: { comment: CommentProps }): JSX.Element => {
   return (
-    <div className={styles.comment}>
+    <li className={styles.comment}>
       <div className={styles.body}>{comment.body}</div>
       <div className={styles.email}>Posted by: {comment.email}</div>
-    </div>
+    </li>
   );
 };
 

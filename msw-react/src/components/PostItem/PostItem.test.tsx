@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { rest } from "msw";
 import CONSTANTS from "../../constants";
 import IPost from "../../interfaces/Post";
@@ -26,5 +27,15 @@ describe("PostItem test suite", () => {
     );
     render(<PostItem post={post} />);
     await waitFor(() => screen.getByText(/No comments yet!/i));
+  });
+
+  test("PostItem has comments", async () => {
+    render(<PostItem post={post} />);
+    await waitFor(() => {
+      const button = screen.getByRole("button", { name: /See comments/i });
+      userEvent.click(button);
+      const comments = screen.getAllByRole("listitem");
+      expect(comments).toHaveLength(2);
+    });
   });
 });
