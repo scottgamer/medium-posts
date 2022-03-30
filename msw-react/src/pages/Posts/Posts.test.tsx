@@ -5,7 +5,7 @@ import server from "../../mocks/server";
 import { rest } from "msw";
 import CONSTANTS from "../../constants";
 
-describe("Posts component", () => {
+describe("Posts test suite", () => {
   test("Renders the component with loading state", async () => {
     render(<Posts />);
     await screen.findByText(/Loading posts.../i);

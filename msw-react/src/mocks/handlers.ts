@@ -23,4 +23,26 @@ function getPosts() {
   });
 }
 
-export const handlers = [getPosts()];
+function getComments() {
+  return rest.get(`${CONSTANTS.API_URL}/comments`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: 1,
+          name: "Comment name 1",
+          email: "richosojason@msn.com",
+          body: "Comment body 2",
+        },
+        {
+          id: 2,
+          name: "Comment name 2",
+          email: "rmunoz@stackbuilders.com",
+          body: "Comment body 2",
+        },
+      ])
+    );
+  });
+}
+
+export const handlers = [getPosts(), getComments()];
