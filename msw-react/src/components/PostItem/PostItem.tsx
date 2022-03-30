@@ -24,19 +24,23 @@ const PostItem = ({ post }: { post: IPost }): JSX.Element => {
     <article className={styles.postItem}>
       <h3>{title}</h3>
       <div>{body}</div>
-      <button
-        className={styles.button}
-        onClick={() => setToggleComments(!toggleComments)}
-      >
-        See comments
-      </button>
-      {toggleComments && comments.length > 0 ? (
-        comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))
+
+      {comments.length > 0 ? (
+        <button
+          className={styles.button}
+          onClick={() => setToggleComments(!toggleComments)}
+        >
+          See comments
+        </button>
       ) : (
         <div>No comments yet!</div>
       )}
+
+      {toggleComments
+        ? comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))
+        : null}
     </article>
   );
 };
